@@ -1,51 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.1 (Python 3.10.0 on win32)" generated="20211019 21:11:50.126" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.1 (Python 3.10.0 on win32)" generated="20211021 20:48:11.027" rpa="false" schemaversion="2">
 <suite id="s1" name="Shopping Cart" source="C:\Users\dariu\PycharmProjects\shop_webinar\tests\shopping_cart.robot">
 <kw name="Prepare Env" type="SETUP">
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>0.5</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20211019 21:11:50.345" endtime="20211019 21:11:50.345"/>
+<status status="PASS" starttime="20211021 20:48:11.266" endtime="20211021 20:48:11.267"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>screenshots</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20211019 21:11:50.345" endtime="20211019 21:11:50.346"/>
+<status status="PASS" starttime="20211021 20:48:11.267" endtime="20211021 20:48:11.267"/>
 </kw>
-<status status="PASS" starttime="20211019 21:11:50.345" endtime="20211019 21:11:50.346"/>
+<status status="PASS" starttime="20211021 20:48:11.266" endtime="20211021 20:48:11.267"/>
 </kw>
 <test id="s1-t1" name="Adding Product To Shopping Cart Should Increase Products Amount">
 <kw name="Open Shop Webpage" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>http://automationpractice.com/index.php</arg>
-<arg>chrome</arg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20211019 21:11:50.347" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php'.</msg>
-<status status="PASS" starttime="20211019 21:11:50.347" endtime="20211019 21:12:04.723"/>
+<msg timestamp="20211021 20:48:11.268" level="INFO">Opening browser 'chrome' to base url 'https://mystore-testlab.coderslab.pl/index.php'.</msg>
+<status status="PASS" starttime="20211021 20:48:11.268" endtime="20211021 20:48:15.708"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20211019 21:12:04.724" endtime="20211019 21:12:05.377"/>
+<status status="PASS" starttime="20211021 20:48:15.708" endtime="20211021 20:48:16.376"/>
 </kw>
-<status status="PASS" starttime="20211019 21:11:50.347" endtime="20211019 21:12:05.379"/>
+<status status="PASS" starttime="20211021 20:48:11.268" endtime="20211021 20:48:16.378"/>
 </kw>
-<kw name="Check If Shopping Cart Is Empty">
+<kw name="Check If Shopping Cart Has 0 Products">
 <kw name="Wait Until Element Contains" library="SeleniumLibrary">
-<arg>${CART_ITEMS_AMOUNT}</arg>
-<arg>(empty)</arg>
+<arg>${CART_ITEMS_AMOUNT_0}</arg>
+<arg>(0)</arg>
 <doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" starttime="20211019 21:12:05.383" endtime="20211019 21:12:06.497"/>
+<status status="PASS" starttime="20211021 20:48:16.383" endtime="20211021 20:48:17.498"/>
 </kw>
-<status status="PASS" starttime="20211019 21:12:05.381" endtime="20211019 21:12:06.499"/>
+<status status="PASS" starttime="20211021 20:48:16.381" endtime="20211021 20:48:17.498"/>
+</kw>
+<kw name="Go To Product View">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${PRODUCT_VIEW}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 20:48:17.499" level="INFO">Clicking element '//a[contains(text(),'Hummingbird printed sweater')]'.</msg>
+<status status="PASS" starttime="20211021 20:48:17.499" endtime="20211021 20:48:18.965"/>
+</kw>
+<status status="PASS" starttime="20211021 20:48:17.498" endtime="20211021 20:48:18.965"/>
+</kw>
+<kw name="Add Product To Shopping Cart">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${ADD_TO_CART_BUTTON}</arg>
+<arg>timeout=2s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20211021 20:48:18.966" endtime="20211021 20:48:19.491"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADD_TO_CART_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 20:48:19.491" level="INFO">Clicking element '//body/main[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/div[1]/div[2]/button[1]'.</msg>
+<status status="PASS" starttime="20211021 20:48:19.491" endtime="20211021 20:48:20.548"/>
+</kw>
+<status status="PASS" starttime="20211021 20:48:18.965" endtime="20211021 20:48:20.549"/>
+</kw>
+<kw name="Check If Shopping Cart Has 1 Products">
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${CART_ITEMS_AMOUNT_1}</arg>
+<arg>(1)</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211021 20:48:20.550" endtime="20211021 20:48:21.589"/>
+</kw>
+<status status="PASS" starttime="20211021 20:48:20.550" endtime="20211021 20:48:21.590"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20211019 21:12:06.502" endtime="20211019 21:12:09.119"/>
+<status status="PASS" starttime="20211021 20:48:21.592" endtime="20211021 20:48:24.209"/>
 </kw>
-<status status="PASS" starttime="20211019 21:11:50.346" endtime="20211019 21:12:09.122"/>
+<status status="PASS" starttime="20211021 20:48:11.267" endtime="20211021 20:48:24.212"/>
 </test>
 <doc>Automated tests for shopping cart functionality</doc>
-<status status="PASS" starttime="20211019 21:11:50.127" endtime="20211019 21:12:09.130"/>
+<status status="PASS" starttime="20211021 20:48:11.029" endtime="20211021 20:48:24.222"/>
 </suite>
 <statistics>
 <total>
